@@ -4,14 +4,20 @@ mod xier;
 mod pick;
 mod maopao;
 mod merge;
+mod fast;
+mod heap;
+mod counting;
+mod bucket;
+mod radix;
 
 use std::time::SystemTime;
 
 fn main() {
-    let array = rand_num_array::gen_rand_array(100, 500);
+    let array = rand_num_array::gen_rand_array(20, 500);
+    // array = vec![119, 84, 247, 441, 340, 273, 320, 401, 100];
     println!("ori array : \n{:?}", array);
     let sys_time = SystemTime::now();
-    let array = merge::sort(array);
+    let array = radix::sort(array);
     println!("\n\n");
     println!("sorted array : \n{:?}", array);
     
